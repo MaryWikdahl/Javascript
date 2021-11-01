@@ -7,22 +7,36 @@
     <meta name="author" content= "Mary">
     <title>no name</title>
 
-    <!-- bootstarp länk -->
+    <!-- boostrap länk -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <!-- länk till fontawsome-->
 <script src="https://kit.fontawesome.com/124ac6c2b5.js" crossorigin="anonymous"></script>
 <!-- länk till css blocket -->
 <link rel="stylesheet" href= "Style.css">
-
-
-
-
 </head>
 <body>
 
+<div id="div1"Class="container d-flex justify-content-center mt-5"><H1>Formulär</H1></div>
 
-
-
+<div  Class="container mt-5">
+<form id="formulär">
+    <!-- <label for="firstName">Förnamn</label> -->
+    <input id="firstname" type="text" placeholder="Förnamn" class="form-control "/>
+    <div id="errorfirstname" class="text-danger mb-3 ms-2"> <small></small></div>
+    <!-- <label for="lastname">Efternamn</label> -->
+    <input id= "lastname" type="text" placeholder= "Efternamn" class="form-control"/>  
+    <div id="errorlastname" class="text-danger mb-3 ms-2"> <small> </small></div>
+    <!-- <label for="email">E-mail</label> -->
+    <input id= "email" type="text" placeholder= "E-mail"   class="form-control"/> 
+    <div id="erroremail" class="text-danger mb-3 ms-2"> <small> </small></div>
+    <!-- <label for="password">Lösenord</label> -->
+    <input id= "password" type="text" placeholder= "Lösenord"  class="form-control mb-3"/> 
+    <div id="errorpassword" class="text-danger mb-3 ms-2"> <small> </small></div>
+    <!-- <label for="confirm-password">Bekräfta Lösenord</label> -->
+    <input id= "confirm-password" type="text" placeholder= "Bekräfta Lösenord"  class="form-control mb-3"/> 
+    <button class="btn btn-dark" type="submit">Skicka</button>
+</form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 <script src="script.js" ></script>
 </body>
