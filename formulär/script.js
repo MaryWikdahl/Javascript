@@ -30,6 +30,22 @@ function validpassword (value){
         return true
 }
 
+function validatepassword(){
+    confirmpassword.addEventListener("keyup", function(e){
+    if (password.value !== confirmpassword.value){
+ 
+    e.target.classList.add("is-invalid");
+    document.getElementById(`${e.target.id}-error`).style.display= "block"
+    checkvalidform(forms)
+}
+else {
+    e.target.classList.remove("is-invalid");
+    document.getElementById(`${e.target.id}-error`).style.display= "none"
+    checkvalidform(forms)
+}
+    })
+}
+
 function validemail(value){
     const regex =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!regex.test(value))
@@ -38,8 +54,21 @@ function validemail(value){
         return true  
 }
 
+function validatezipcode (){
+    const zipcode = document.getElementById("zipcode")
 
+    zipcode.addEventListener("keyup", function(e){
+    if (!minvalidvalue(e.target.value, 5)){
+        e.target.classList.add("is-invalid");
+        document.getElementById(`zipcode-error`).style.display= "block"
+        checkvalidform(forms)
+    }
 
+    else {
+     document.getElementById(`zipcode-error`).style.display= "none"
+     } 
+    })
+  }
 
 
 function setEventListeners() {
@@ -107,6 +136,8 @@ function setEventListeners() {
     })
 }
 
+
+
 // populateYearSelector();
 populateSelector("yearselector", 1921, 2021)
 populateSelector("monthselector", 1, 12)
@@ -123,8 +154,6 @@ function populateSelector(selectorId, to, from){
         selector.appendChild(option);
     }
 }
-
-
 
 
 
@@ -148,66 +177,29 @@ function validateAge (){
     const month =document.getElementById("monthselector").value
     const day =document.getElementById("dayselector").value
     if(isNaN(year) || isNaN(month) || isNaN(day) ) {
-        console.log("här")
         return;
     }
+    const birthDate = new Date(year, month, day);
+    const currentDay = new Date(todayYear, todayMonth, todayDay);
 
-    if ((todayYear - year) >= 18 && (todayMonth - month) >= 0 && (todayDay - day) >= 0)
+     var userAge = dateDiffInDays(currentDay, birthDate) / 365.25; 
+    if (userAge >= 18)
     { 
-        document.getElementById(`selector-error`).style.display= "none"
+        document.getElementById('selector-error').style.display= "none"
     }
     else {
-        document.getElementById(`selector-error`).style.display= "block"
+        document.getElementById('selector-error').style.display= "block"
     }
-
+  
 }
 
-
- function validatezipcode (){
-    const zipcode = document.getElementById("zipcode")
-
-    zipcode.addEventListener("keyup", function(e){
-    if (!minvalidvalue(e.target.value, 5)){
-        e.target.classList.add("is-invalid");
-        document.getElementById(`zipcode-error`).style.display= "block"
-        checkvalidform(forms)
-    }
-
-    else {
-     document.getElementById(`zipcode-error`).style.display= "none"
-     } 
-    })
+function dateDiffInDays(todaysDate, birthDate) {
+    var difference = todaysDate.getTime() - birthDate.getTime();
+    
+    return difference / (1000 * 3600 * 24);
   }
-
-console.log(zipcode)
-
-function validatepassword(){
-    confirmpassword.addEventListener("keyup", function(e){
-    if (password.value !== confirmpassword.value){
  
-    e.target.classList.add("is-invalid");
-    document.getElementById(`${e.target.id}-error`).style.display= "block"
-    checkvalidform(forms)
-}
-else {
-    e.target.classList.remove("is-invalid");
-    document.getElementById(`${e.target.id}-error`).style.display= "none"
-    checkvalidform(forms)
-}
-    })
-}
 
 
-// SetValidators(firstname, 5)
-// SetValidators(lastname, 8)
-// SetValidators(email, 15)
 
-// function SetValidators(field, minimumLength) {
-//     field.addEventListener("keyup", function(event)  {
-//         if(field.value.length < minimumLength) {
-//             console.log(`${field.id} är bara just nu ${field.value.length} och därför inte bra`)
-//         } else {
-//             console.log(field.id + " är tillräckligt långt")
-//         }
-//     })
-// }
+

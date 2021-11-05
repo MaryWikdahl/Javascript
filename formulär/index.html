@@ -15,10 +15,10 @@
 <link rel="stylesheet" href= "Style.css">
 </head>
 <body>
-<form id="myForm" class="container col-6">
-<h2 class="d-flex align-items-center">BLI MEDLEM</h2>
-<small>Bli medlem — missa inte erbjudanden, rabatter och bonuscheckar.</small>
-
+    <img id="background" src="https://i.pinimg.com/originals/fd/b6/aa/fdb6aab6fc0f9b8a4dbac275aeefe8e0.png" alt="">
+<form id="myForm" class=" mt-5 container col-4">
+<h2 class="rubrik mt-5 d-flex align-items-center">BLI MEDLEM</h2>
+<div class="underrubrik "><small>Bli medlem — missa inte erbjudanden, rabatter och bonuscheckar.</small></div>
     <label class=" mt-3"  for="firstname">Förnamn*</label> 
     <input type="text" id=firstname placeholder=""  class="form-control  need-validation"/>
     <div style="display:none" id="firstname-error" class="text-danger mb-3 ms-2"> <small>Förnamnet måste betså av mer än 1 bokstav</small></div>
@@ -32,16 +32,14 @@
     
     <label class=" mt-3"  for="password">Lösenord*</label>
     <input type="password" id=password placeholder="" class="form-control  need-validation">
-    <div style="display:none" id="password-error" class="text-danger mb-3 ms-2"> <small>Error</small></div>
+    <div style="display:none" id="password-error" class="text-danger mb-3 ms-2"> <small>Inte giltigt lösenord</small></div>
     <label class=" mt-3"  for="confirmpassword">Bekräfta lösenord*</label>
     <input type="password" id=confirmpassword placeholder="" class="form-control  need-validation"/>
-    <div style="display:none" id="confirmpassword-error" class="text-danger mb-3 ms-2"> <small>Error</small></div>
+    <div style="display:none" id="confirmpassword-error" class="text-danger mb-3 ms-2"> <small>Lösenorden matchar inte</small></div>
 
-   
+
     <p class="mt-3">Födelsedatum*</p> 
-  
-   
-   <div class="d-flex">
+   <div class="d-flex birthselector">
     <select id= "yearselector" class="form-select agevalidation" aria-label="Default select example">
         <option selected>År</option>
     </select>
@@ -50,7 +48,6 @@
     </select>
     <select id= "dayselector" class="form-select agevalidation" aria-label="Default select example">
         <option selected>Dag</option>
-       
     </select> 
     
 </div>
@@ -61,14 +58,13 @@
     <div style="display:none" id="adress-error" class="text-danger mb-3 ms-2"> <small>Inte giltig adress</small></div>
      <div class="d-flex justify-content-between">
     <label class=" mt-3"  for="Town">Stad*</label>
-     <label class=" mt-3"  for="zipcode">Postnummer*</label>
+     <label class="postnummer mt-3"  for="zipcode">Postnummer*</label>
      </div>
      <div class="d-flex ">
     <input type="text" id=Town placeholder="" class="form-control need-validation"/>
      <div style="display:none" id="Town-error" class="text-danger mb-3 ms-2"> <small></small></div>
-    
     <input type="number" id=zipcode placeholder="" class="form-control  need-validation"/>
-    <div style="display:none" id="zipcode-error" class="text-danger mb-3 ms-2"> <small>Postnummeret existerar inte</small></div>
+    <div style="display:none" id="zipcode-error" class="text-danger mb-3 ms-2"> <small></small></div>
 </div>
     
     <div class="form-check mt-4">
@@ -78,7 +74,7 @@
         </label>
       
       </div>
-<button class="btn btn-secondary col-12 mt-4 submit">BLI MEDLEM</button>
+<button class="btn col-12 mt-4 submit">BLI MEDLEM</button>
 <small>Genom att skapa konto godkänner du våra medlemsvillkor och integritetspolicy.</small>
 
 </form>
